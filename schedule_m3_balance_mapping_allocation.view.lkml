@@ -1,5 +1,5 @@
 view: schedule_m3_balance_mapping_allocation {
-  sql_table_name: `b056e491eba9.odq_o51t.schedule_m3_balance_mapping_allocation` ;;
+  sql_table_name: `b056e491eba9.schedule_m3_balance_mapping_allocation.schedule_m3_balance_mapping_allocation` ;;
 
   dimension: unique_id {
     type: string
@@ -81,6 +81,11 @@ view: schedule_m3_balance_mapping_allocation {
     sql: ${TABLE}.tcc_presentation ;;
   }
 
+  dimension: tcc_description {
+    type: string
+    sql: ${TABLE}.tcc_description ;;
+  }
+
   dimension: trc {
     type: string
     sql: ${TABLE}.trc ;;
@@ -97,8 +102,8 @@ view: schedule_m3_balance_mapping_allocation {
   }
 
   dimension: item_id {
-    type: string
-    sql: CAST(${TABLE}.item_id AS STRING) ;;
+    type: number
+    sql: ${TABLE}.item_id ;;
   }
 
   dimension: company_name {
@@ -154,11 +159,6 @@ view: schedule_m3_balance_mapping_allocation {
   dimension: class_owned_pct {
     type: string
     sql: ${TABLE}.class_owned_pct ;;
-  }
-
-  dimension: miss_ein_reason {
-    type: string
-    sql: ${TABLE}.miss_ein_reason ;;
   }
 
   dimension: form_part_description {
@@ -234,5 +234,14 @@ view: schedule_m3_balance_mapping_allocation {
   dimension: variance_amount {
     type: number
     sql: ${TABLE}.variance_amount ;;
+  }
+
+  measure: average_variance_amount {
+    type: average
+    sql: ${variance_amount} ;;
+  }
+
+  measure: count {
+    type: count
   }
 }
