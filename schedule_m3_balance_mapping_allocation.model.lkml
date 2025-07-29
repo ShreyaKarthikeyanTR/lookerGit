@@ -4,6 +4,4 @@ label: "DataQuery"
 include: "/views/**/*.view"
 include: "/Dashboard/*.dashboard.lookml"
 
-explore: schedule_m3_balance_mapping_allocation {
-
-}
+explore: schm3_balances_allocation {}
