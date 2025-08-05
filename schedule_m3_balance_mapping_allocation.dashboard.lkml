@@ -1,76 +1,130 @@
-- dashboard: variance_amount_over_time_by_entity_and_binder_year
-  title: "Variance Amount Over Time by Entity and Binder Year"
-  description: "Dashboard showing the variance amount over time, broken down by entity name and binder year."
-  preferred_viewer: dashboards-next
+- dashboard: schedule_m3_balance_mapping_allocation
+  title: "Schedule M-3 Balances and Account Allocation Variance"
   layout: newspaper
+  preferred_viewer: dashboards-next
+  description: "Detailed dashboard report from the schedule_m3_balance_mapping_allocation table showing Schedule M-3 Balances and Account Allocation Variance."
+  enable_viz_full_screen: false
   tile_size: 200
   auto_run: true
   elements:
-  - title: "Variance Amount Trend by Entity and Binder Year"
-    name: "Variance Amount Trend by Entity and Binder Year"
-    type: looker_column
+  - title: "Schedule M-3 Balances and Account Allocation Variance"
+    name: "Schedule M-3 Balances and Account Allocation Variance Table"
+    type: looker_grid
     row: 0
     col: 0
     width: 24
-    height: 10
-    model: schedule_m3_balance_mapping_allocation
+    height: 12
+    note_state: expanded
+    note_display: hover
+    note_text: "Dashboard displaying Schedule M-3 balances and allocation variance details."
+    model: DataQuery
     explore: schedule_m3_balance_mapping_allocation
-    fields: [schedule_m3_balance_mapping_allocation.binder_year, schedule_m3_balance_mapping_allocation.entity_name, schedule_m3_balance_mapping_allocation.variance_amount]
-    sorts: [schedule_m3_balance_mapping_allocation.binder_year asc]
+    fields: [schedule_m3_balance_mapping_allocation.account_description, schedule_m3_balance_mapping_allocation.account_number, schedule_m3_balance_mapping_allocation.adjustment_description, schedule_m3_balance_mapping_allocation.adjustment_number, schedule_m3_balance_mapping_allocation.class_owned_pct, schedule_m3_balance_mapping_allocation.class_vote_stk, schedule_m3_balance_mapping_allocation.company_name, schedule_m3_balance_mapping_allocation.eoy_loss_pct, schedule_m3_balance_mapping_allocation.eoy_profit_pct, schedule_m3_balance_mapping_allocation.entity_type, schedule_m3_balance_mapping_allocation.fein, schedule_m3_balance_mapping_allocation.miss_ein_reason, schedule_m3_balance_mapping_allocation.reportable_trans_desc, schedule_m3_balance_mapping_allocation.reportable_trans_type, schedule_m3_balance_mapping_allocation.tax_shelter_name, schedule_m3_balance_mapping_allocation.tax_shelter_reg_num, schedule_m3_balance_mapping_allocation.balance_us_dollars, schedule_m3_balance_mapping_allocation.binder_name, schedule_m3_balance_mapping_allocation.binder_return_type, schedule_m3_balance_mapping_allocation.binder_year, schedule_m3_balance_mapping_allocation.entity_number, schedule_m3_balance_mapping_allocation.entity_name, schedule_m3_balance_mapping_allocation.entity_type_name, schedule_m3_balance_mapping_allocation.federal_chart_account_name, schedule_m3_balance_mapping_allocation.entity_international_filing_type, schedule_m3_balance_mapping_allocation.schm3_column, schedule_m3_balance_mapping_allocation.schm3_column_heading, schedule_m3_balance_mapping_allocation.schm3_form_line_description, schedule_m3_balance_mapping_allocation.schm3_form_line_number, schedule_m3_balance_mapping_allocation.form_part_description, schedule_m3_balance_mapping_allocation.tcc_presentation, schedule_m3_balance_mapping_allocation.tcc_description, schedule_m3_balance_mapping_allocation.trc, schedule_m3_balance_mapping_allocation.trc_category_name, schedule_m3_balance_mapping_allocation.trc_description, schedule_m3_balance_mapping_allocation.allocation_amount, schedule_m3_balance_mapping_allocation.variance_amount, schedule_m3_balance_mapping_allocation.entity_workarea_name]
+    sorts: [schedule_m3_balance_mapping_allocation.entity_workarea_name asc, schedule_m3_balance_mapping_allocation.entity_number asc, schedule_m3_balance_mapping_allocation.entity_name asc, schedule_m3_balance_mapping_allocation.binder_year desc, schedule_m3_balance_mapping_allocation.binder_name asc, schedule_m3_balance_mapping_allocation.form_part_description asc]
     limit: 500
-    color_collection: Data
-    label_density: 25
-    x_axis_label: Binder Year
-    y_axis_label: Variance Amount
-    show_value_labels: false
-    show_null_points: true
-    label_value_format: "0.00"
-    series_colors: {}
+    title_hidden: false
+    default_version: 1
+    auto_size_all_columns: true
+    column_order: [schedule_m3_balance_mapping_allocation.account_description, schedule_m3_balance_mapping_allocation.account_number, schedule_m3_balance_mapping_allocation.adjustment_description, schedule_m3_balance_mapping_allocation.adjustment_number, schedule_m3_balance_mapping_allocation.class_owned_pct, schedule_m3_balance_mapping_allocation.class_vote_stk, schedule_m3_balance_mapping_allocation.company_name, schedule_m3_balance_mapping_allocation.eoy_loss_pct, schedule_m3_balance_mapping_allocation.eoy_profit_pct, schedule_m3_balance_mapping_allocation.entity_type, schedule_m3_balance_mapping_allocation.fein, schedule_m3_balance_mapping_allocation.miss_ein_reason, schedule_m3_balance_mapping_allocation.reportable_trans_desc, schedule_m3_balance_mapping_allocation.reportable_trans_type, schedule_m3_balance_mapping_allocation.tax_shelter_name, schedule_m3_balance_mapping_allocation.tax_shelter_reg_num, schedule_m3_balance_mapping_allocation.balance_us_dollars, schedule_m3_balance_mapping_allocation.binder_name, schedule_m3_balance_mapping_allocation.binder_return_type, schedule_m3_balance_mapping_allocation.binder_year, schedule_m3_balance_mapping_allocation.entity_number, schedule_m3_balance_mapping_allocation.entity_name, schedule_m3_balance_mapping_allocation.entity_type_name, schedule_m3_balance_mapping_allocation.federal_chart_account_name, schedule_m3_balance_mapping_allocation.entity_international_filing_type, schedule_m3_balance_mapping_allocation.schm3_column, schedule_m3_balance_mapping_allocation.schm3_column_heading, schedule_m3_balance_mapping_allocation.schm3_form_line_description, schedule_m3_balance_mapping_allocation.schm3_form_line_number, schedule_m3_balance_mapping_allocation.form_part_description, schedule_m3_balance_mapping_allocation.tcc_presentation, schedule_m3_balance_mapping_allocation.tcc_description, schedule_m3_balance_mapping_allocation.trc, schedule_m3_balance_mapping_allocation.trc_category_name, schedule_m3_balance_mapping_allocation.trc_description, schedule_m3_balance_mapping_allocation.allocation_amount, schedule_m3_balance_mapping_allocation.variance_amount, schedule_m3_balance_mapping_allocation.entity_workarea_name]
+    table_theme: editable
+    show_row_numbers: false
+    hide_totals: false
+    hide_row_totals: false
+    transpose: false
+    limit_displayed_rows: false
+    size_to_fit: false
+    truncate_text: false
+    show_view_names: false
     series_labels:
+      schedule_m3_balance_mapping_allocation.account_description: "Account Description"
+      schedule_m3_balance_mapping_allocation.account_number: "Account Number"
+      schedule_m3_balance_mapping_allocation.adjustment_description: "Adjustment Description"
+      schedule_m3_balance_mapping_allocation.adjustment_number: "Adjustment Number"
+      schedule_m3_balance_mapping_allocation.class_owned_pct: "Allocation Detail: Voting Stock Percentage Owned"
+      schedule_m3_balance_mapping_allocation.class_vote_stk: "Allocation Detail: Class of Voting Stock"
+      schedule_m3_balance_mapping_allocation.company_name: "Allocation Detail: Entity Name"
+      schedule_m3_balance_mapping_allocation.eoy_loss_pct: "Allocation Detail: EOY Loss-Sharing Percentage"
+      schedule_m3_balance_mapping_allocation.eoy_profit_pct: "Allocation Detail: EOY Profit-Sharing Percentage"
+      schedule_m3_balance_mapping_allocation.entity_type: "Allocation Detail: Entity Type"
+      schedule_m3_balance_mapping_allocation.fein: "Allocation Detail: Enity EIN"
+      schedule_m3_balance_mapping_allocation.miss_ein_reason: "Allocation Detail: Reason for Missing EIN"
+      schedule_m3_balance_mapping_allocation.reportable_trans_desc: "Allocation Detail: Reportable Transaction Description"
+      schedule_m3_balance_mapping_allocation.reportable_trans_type: "Allocation Detail: Reportable Transaction Type"
+      schedule_m3_balance_mapping_allocation.tax_shelter_name: "Allocation Detail: Tax Shelter Name"
+      schedule_m3_balance_mapping_allocation.tax_shelter_reg_num: "Allocation Detail: Tax Shelter Registration Number"
+      schedule_m3_balance_mapping_allocation.balance_us_dollars: "Balance"
+      schedule_m3_balance_mapping_allocation.binder_name: "Binder Name"
+      schedule_m3_balance_mapping_allocation.binder_return_type: "Binder Return Type"
       schedule_m3_balance_mapping_allocation.binder_year: "Binder Year"
+      schedule_m3_balance_mapping_allocation.entity_number: "Entity Number"
       schedule_m3_balance_mapping_allocation.entity_name: "Entity Name"
-      schedule_m3_balance_mapping_allocation.variance_amount: "Variance Amount"
-    column_order: [schedule_m3_balance_mapping_allocation.binder_year, schedule_m3_balance_mapping_allocation.entity_name, schedule_m3_balance_mapping_allocation.variance_amount]
+      schedule_m3_balance_mapping_allocation.entity_type_name: "Entity Type"
+      schedule_m3_balance_mapping_allocation.federal_chart_account_name: "Federal Chart of Accounts Name"
+      schedule_m3_balance_mapping_allocation.entity_international_filing_type: "Entity International Filing Type"
+      schedule_m3_balance_mapping_allocation.schm3_column: "Schedule M-3 Column"
+      schedule_m3_balance_mapping_allocation.schm3_column_heading: "Schedule M-3 Column Heading"
+      schedule_m3_balance_mapping_allocation.schm3_form_line_description: "Schedule M-3 Form Line Description"
+      schedule_m3_balance_mapping_allocation.schm3_form_line_number: "Schedule M-3 Form Line Number"
+      schedule_m3_balance_mapping_allocation.form_part_description: "Schedule M-3 Form Part Description"
+      schedule_m3_balance_mapping_allocation.tcc_presentation: "TCC"
+      schedule_m3_balance_mapping_allocation.tcc_description: "TCC Description"
+      schedule_m3_balance_mapping_allocation.trc: "TRC"
+      schedule_m3_balance_mapping_allocation.trc_category_name: "TRC Category Description"
+      schedule_m3_balance_mapping_allocation.trc_description: "TRC Description"
+      schedule_m3_balance_mapping_allocation.allocation_amount: "Allocation Detail: Allocation Amount"
+      schedule_m3_balance_mapping_allocation.variance_amount: "Allocation Detail: Variance Amount"
+      schedule_m3_balance_mapping_allocation.entity_workarea_name: "Workarea"
+    series_text_format: {}
+    header_text_alignment: left
+    header_font_size: 12
+    rows_font_size: 12
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
     listen:
-      Binder Year: schedule_m3_balance_mapping_allocation.binder_year
+      Workarea: schedule_m3_balance_mapping_allocation.entity_workarea_name
+      Entity Number: schedule_m3_balance_mapping_allocation.entity_number
       Entity Name: schedule_m3_balance_mapping_allocation.entity_name
-    ui_config:
-      type: looker_column
-      x_axis_label: Binder Year
-      y_axis_label: Variance Amount
-      label_density: 25
-      show_value_labels: false
-      show_null_points: true
-      label_value_format: "0.00"
-      series_colors: {}
-      series_labels:
-        schedule_m3_balance_mapping_allocation.binder_year: "Binder Year"
-        schedule_m3_balance_mapping_allocation.entity_name: "Entity Name"
-        schedule_m3_balance_mapping_allocation.variance_amount: "Variance Amount"
+  crossfilter_enabled: false
+  filters_bar_collapsed: true
+  filters_location_top: true
   filters:
-  - name: Binder Year
-    title: "Binder Year"
+  - name: Workarea
+    title: "Workarea"
     type: field_filter
-    default_value: ""
+    default_value: ''
     allow_multiple_values: true
     required: false
     ui_config:
       type: advanced
       display: popover
-    model: schedule_m3_balance_mapping_allocation
+    model: DataQuery
     explore: schedule_m3_balance_mapping_allocation
-    field: schedule_m3_balance_mapping_allocation.binder_year
-    listens_to_filters: [Entity Name]
+    listens_to_filters: [Entity Number, Entity Name]
+    field: schedule_m3_balance_mapping_allocation.entity_workarea_name
+  - name: Entity Number
+    title: "Entity Number"
+    type: field_filter
+    default_value: ''
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: advanced
+      display: popover
+    model: DataQuery
+    explore: schedule_m3_balance_mapping_allocation
+    listens_to_filters: [Workarea, Entity Name]
+    field: schedule_m3_balance_mapping_allocation.entity_number
   - name: Entity Name
     title: "Entity Name"
     type: field_filter
-    default_value: ""
+    default_value: ''
     allow_multiple_values: true
     required: false
     ui_config:
       type: advanced
       display: popover
-    model: schedule_m3_balance_mapping_allocation
+    model: DataQuery
     explore: schedule_m3_balance_mapping_allocation
+    listens_to_filters: [Workarea, Entity Number]
     field: schedule_m3_balance_mapping_allocation.entity_name
-    listens_to_filters: [Binder Year]
