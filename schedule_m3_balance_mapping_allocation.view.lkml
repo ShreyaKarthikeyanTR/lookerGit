@@ -81,6 +81,11 @@ view: schedule_m3_balance_mapping_allocation {
     sql: ${TABLE}.tcc_presentation ;;
   }
 
+  dimension: tcc_description {
+    type: string
+    sql: ${TABLE}.tcc_description ;;
+  }
+
   dimension: trc {
     type: string
     sql: ${TABLE}.trc ;;
@@ -97,8 +102,8 @@ view: schedule_m3_balance_mapping_allocation {
   }
 
   dimension: item_id {
-    type: string
-    sql: CAST(${TABLE}.item_id AS STRING) ;;
+    type: number
+    sql: ${TABLE}.item_id ;;
   }
 
   dimension: company_name {
@@ -234,5 +239,10 @@ view: schedule_m3_balance_mapping_allocation {
   dimension: variance_amount {
     type: number
     sql: ${TABLE}.variance_amount ;;
+  }
+
+  measure: total_variance_amount {
+    type: sum
+    sql: ${variance_amount} ;;
   }
 }
